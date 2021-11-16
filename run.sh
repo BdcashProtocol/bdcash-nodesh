@@ -2,12 +2,12 @@
 
 if [[ $1 == "-testnet" ]]
 then
-    echo "Running Bdcash IdaNode in testnet mode"
+    echo "Running Bdcash NodeSh in testnet mode"
     pkill lyrad
     npm run build
     npm run start:testnet
 else
-    echo "Running Bdcash IdaNode in mainnet mode"
+    echo "Running Bdcash NodeSh in mainnet mode"
     pkill lyrad
     npm run build
     npm run start
