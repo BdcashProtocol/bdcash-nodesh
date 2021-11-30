@@ -9,11 +9,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Bdcash IdaNode UI</title>
+    <title>Bdcash NodeSH</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="logo.png">
-    <link rel="icon" href="logo.png" type="image.png" />
+    <link rel="icon" href="/logo.png" type="image.png" />
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
     <div id="app">
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h2 class="title">Bdcash IdaNode</h2>
+                <h2 class="title">Bdcash Nodesh</h2>
                 <nav>
                     <ul>
                         <li v-on:click="showExplorer"><a href="#">Explorer</a></li>
@@ -83,7 +83,7 @@
                     <div style="border-bottom:1px solid #ddd; width:100; display:block;">
                         <div class="row">
                             <div class="col-sm-6"><strong>Block Reward</strong></div>
-                            <div class="col-sm-6 text-right">{{ block.generated }} LYRA</div>
+                            <div class="col-sm-6 text-right">{{ block.generated }} BDCASH</div>
                         </div>
                     </div>
 
@@ -105,13 +105,13 @@
                     <div v-for="(tx, index) in block.analysis">
                         <div v-if="tx.vout > 0" style="background:#eee; border:1px solid #ddd; border-radius:5px; margin:10px 0; padding:10px;">
                             <strong>TXID:</strong> {{ index }}<br>
-                            <strong>Total Inputs:</strong> {{ tx.vin }} LYRA<br>
-                            <strong>Total Outputs:</strong> {{ tx.vout }} LYRA<hr>
+                            <strong>Total Inputs:</strong> {{ tx.vin }} BDCASH<br>
+                            <strong>Total Outputs:</strong> {{ tx.vout }} BDCASH<hr>
                             <div v-for="(bal, index) in tx.balances">
                                 <h4>{{ index }}</h4>
-                                Input: {{ bal.vin }} LYRA<br>
-                                Output: {{ bal.vout }} LYRA<br>
-                                Balance: {{ bal.vout - bal.vin }} LYRA
+                                Input: {{ bal.vin }} BDCASH<br>
+                                Output: {{ bal.vout }} BDCASH<br>
+                                Balance: {{ bal.vout - bal.vin }} BDCASH
                             </div>
                         </div>
                     </div>
@@ -138,13 +138,13 @@
             <div class="row" v-if="show === 'tools'">
                     <div class="col-md-12">
                         <h3>Create new address</h3>
-                        The new address and the private key will not stored by the IdaNode.
+                        The new address and the private key will not stored by the Nodesh.
                         <pre>{{ newaddress }}</pre>
                         <button class="btn btn-primary" v-on:click="createAddress">Create address</button>
                         <hr>
                         <h3>Init address</h3>
-                        The Idanode will send an amount of Lyra to the address. This tool can be used once for the same address.<br>
-                        <input type="text" v-model="address" placeholder="Write a valid Lyra Address" style="border:0; width:340px; border-bottom:2px solid #000; padding-bottom:5px">
+                        The Nodesh will send an amount of BDCASH to the address. This tool can be used once for the same address.<br>
+                        <input type="text" v-model="address" placeholder="Write a valid BDCASH Address" style="border:0; width:340px; border-bottom:2px solid #000; padding-bottom:5px">
                         <button class="btn btn-primary" v-on:click="initAddress"><i class="fa fa-arrow-right"></i></button>
                         <hr>
                         <h3>Download latest bootstrap</h3>
@@ -159,8 +159,8 @@
 
         <div class="footer-container">
             <footer class="wrapper" style="text-align: center;">
-                <h3 style="font-size:12px">Open Source project by <a href="https://bdcash.foundation" style="color:#fff"
-                        target="_blank">Bdcash Foundation</a></h3>
+                <h3 style="font-size:12px">Open Source project by <a href="https://bdcashprotocol.com" style="color:#fff"
+                        target="_blank">Bdcash Protocol</a></h3>
             </footer>
         </div>
     </div>
