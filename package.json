@@ -20,9 +20,9 @@
   "author": "Bdcash Foundation",
   "license": "MIT",
   "dependencies": {
-    "@bdcash-protocol/core": "^1.0.3",
+    "@bdcash-protocol/core": "^1.0.4",
     "@bdcash-protocol/ipfs": "^1.0.1",
-    "@bdcash-protocol/vm": "^1.0.2",
+    "@bdcash-protocol/vm": "^1.0.3",
     "@types/mathjs": "^6.0.11",
     "@types/node": "14.14.22",
     "archiver": "^5.2.0",
