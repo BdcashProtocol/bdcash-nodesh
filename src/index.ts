@@ -19,7 +19,7 @@ var server
 global['state'] = 'OFF'
 global['db_url'] = 'mongodb://localhost:27017/?retryWrites=true&w=1'
 global['db_options'] = { useNewUrlParser: true, useUnifiedTopology: true }
-global['db_name'] = 'idanodejs'
+global['db_name'] = 'nodesh'
 global['isAnalyzing'] = false
 global['retrySync'] = 0
 global['testnet'] = false
@@ -65,7 +65,7 @@ const nodeprocess = async () => {
       return console.log(err)
     }
     checkConnections()
-    return console.log(`Bdcash IdaNode listening at port ${port}. Public IP is: ${ip}`)
+    return console.log(`Bdcash nodesh listening at port ${port}. Public IP is: ${ip}`)
   })
 
 }
@@ -89,13 +89,13 @@ async function checkConnections() {
     }
 
     if (global['testnet'] === true) {
-      global['lyraInfo'] = {
+      global['bdcashInfo'] = {
         private: 0xae,
         public: 0x7f,
         scripthash: 0x13
       }
     } else {
-      global['lyraInfo'] = {
+      global['bdcashInfo'] = {
         private: 0xae,
         public: 0x30,
         scripthash: 0x0d
@@ -132,7 +132,7 @@ async function checkConnections() {
               console.log('Database connected successfully.')
               client.close()
               if (global['state'] === 'OFF') {
-                runIdaNode()
+                runnodesh()
               }
               var sync = (process.env.SYNC === 'true')
               global['retrySync']++
@@ -197,8 +197,8 @@ async function checkConnections() {
           datadir_flag = ' -datadir=' + process.env.LYRAFOLDER
         }
         try {
-          console.log('Running wallet using: ' + 'lyrad' + testnet_flag + datadir_flag)
-          exec.exec('lyrad' + testnet_flag + datadir_flag, {
+          console.log('Running wallet using: ' + 'bdcashd' + testnet_flag + datadir_flag)
+          exec.exec('bdcashd' + testnet_flag + datadir_flag, {
             stdio: 'ignore',
             detached: true
           }).unref()
@@ -246,7 +246,7 @@ async function returnGitChecksum(version) {
   const app = this
   return new Promise(async response => {
     try {
-      let checksums_git = await axios.get('https://raw.githubusercontent.com/bdcashchain/bdcash-idanodejs/master/checksum', { timeout: 10000 }).catch(e => {
+      let checksums_git = await axios.get('https://raw.githubusercontent.com/bdcashprotocol/bdcash-nodesh/master/checksum', { timeout: 10000 }).catch(e => {
         console.error(e)
         response(false)
       })
@@ -265,7 +265,7 @@ async function returnGitChecksum(version) {
   })
 }
 
-async function runIdaNode() {
+async function runnodesh() {
   console.log('Starting database check.')
   var DB = new Database.Management
   var result = await DB.check()
@@ -274,9 +274,9 @@ async function runIdaNode() {
   // CHECKING CONNETIONS EVERY 1 SECOND
   let valid = await checkIntegrity()
   if (!valid) {
-    console.error('IDANODE IS CORRUPTED, PLEASE CHECK FILES!')
+    console.error('nodesh IS CORRUPTED, PLEASE CHECK FILES!')
   } else {
-    console.info('IDANODE IS VALID.')
+    console.info('nodesh IS VALID.')
   }
 
   setInterval(function () {
