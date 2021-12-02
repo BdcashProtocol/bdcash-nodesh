@@ -1,4 +1,4 @@
-const BdcashCore = require('@bdcash/core')
+const BdcashCore = require('@bdcash-protocol/core')
 const bdcash = new BdcashCore
 const fs = require('fs')
 const homedir = require('os').homedir();

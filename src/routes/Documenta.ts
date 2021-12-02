@@ -7,7 +7,7 @@ import * as Crypto from '../libs/Crypto'
 const crypto = require('crypto')
 const LZUTF8 = require('lzutf8')
 import { v4 as uuidv4 } from 'uuid'
-const BdcashCore = require('@bdcash/core')
+const BdcashCore = require('@bdcash-protocol/core')
 const mongo = require('mongodb').MongoClient
 
 export async function add(req: express.Request, res: express.Response) {
