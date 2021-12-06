@@ -1,28 +1,28 @@
 #!/bin/bash
 
 #DOWNLOADING WALLET
-wget https://github.com/bdcashchain/bdcash/releases/download/2.0.1/lyra-2.0.1-linux-server.zip
-unzip lyra-2.0.1-linux-server.zip
-mv lyrad /usr/bin/lyrad
-mv lyra-cli /usr/bin/lyra-cli
+wget https://github.com/BdcashProtocol/bdcash-protocol/releases/download/v1.7.0.0-bdcashprotocol/binaries-ubuntu18.zip
+unzip binaries-ubuntu18.zip
+mv lyrad /usr/bin/bdcashd
+mv lyra-cli /usr/bin/bdcash-cli
 rm -rf bin
-rm lyra-2.0.1-linux-server.zip
+rm binaries-ubuntu18.zip
 
 #RUNNING WALLET FOR THE FIRST TIME
-lyrad &
+bdcashd &
 sleep 10s
-pkill lyrad
+pkill bdcashd
 
 #WRITING CONF FILE
-echo "rpcuser=lyrarpc
-rpcpassword=lyrapassword
+echo "rpcuser=bdcashrpc
+rpcpassword=bdcashpassword
 rpcallowip=127.0.0.1
 listen=1
 server=1
 daemon=1
 index=1
 txindex=1
-logtimestamps=1" > "/root/.lyra/lyra.conf"
+logtimestamps=1" > "/root/.bdcash/bdcash.conf"
 
 #INSTALL NODEJS
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
@@ -52,9 +52,9 @@ pm2 set pm2-logrotate:rotateInterval '0 * * * *'
 
 #SETTING UP FIREWALL
 ufw allow 22
-ufw deny 42223
+ufw deny 36264
 ufw deny 27017
-ufw allow 42222
+ufw allow 36263
 ufw enable y
 
 #SETTING UP NGINX
@@ -68,9 +68,9 @@ sudo apt update
 sudo apt install python-certbot-nginx -y
 
 pm2 startup
-node docker/create_conf.js
-echo "RUN THIS COMMAND TO RUN IDANODE IN BACKGROUND:"
+node create_conf.js
+echo "RUN THIS COMMAND TO RUN NODESH IN BACKGROUND:"
 echo "pm2 start npm -- start && pm2 save"
 echo ""
-echo "RUN THIS COMMAND TO RUN IDANODE IN FOREGROUND:"
+echo "RUN THIS COMMAND TO RUN NODESH IN FOREGROUND:"
 echo "npm start"

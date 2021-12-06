@@ -2,8 +2,8 @@ const { hashElement } = require('folder-hash')
 const CryptoJS = require('crypto-js')
 const fs = require('fs')
 let pkg = require('../package.json')
-const BdcashCore = require('@bdcash-protocol/core')
-const bdcash = new BdcashCore
+const BDCashCore = require('@bdcash-protocol/core')
+const bdcash = new BDCashCore
 bdcash.staticnodes = true
 bdcash.debug = true
 require('dotenv').config()
