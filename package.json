@@ -20,7 +20,7 @@
   "author": "Bdcash Protocol",
   "license": "MIT",
   "dependencies": {
-    "@bdcash-protocol/core": "^1.0.5",
+    "@bdcash-protocol/core": "^1.0.6",
     "@bdcash-protocol/ipfs": "^1.0.1",
     "@bdcash-protocol/vm": "^1.0.4",
     "@types/mathjs": "^6.0.11",
