@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #DOWNLOADING WALLET
-wget https://github.com/BdcashProtocol/bdcash-protocol/releases/download/v1.7.0.0-bdcashprotocol/binaries-ubuntu18.zip
-unzip binaries-ubuntu18.zip
+wget https://github.com/BdcashProtocol/bdcash-protocol/releases/download/v2.0.0.0-bdcashprotocol/BDCash-Protocol-BinariesV2-0-ubuntu18.zip
+unzip BDCash-Protocol-BinariesV2-0-ubuntu18.zip
 mv bdcashd /usr/bin/bdcashd
 mv bdcash-cli /usr/bin/bdcash-cli
 rm -rf bin
-rm binaries-ubuntu18.zip
+rm BDCash-Protocol-BinariesV2-0-ubuntu18.zip
 
 #RUNNING WALLET FOR THE FIRST TIME
 bdcashd &
