@@ -2,17 +2,17 @@ var CoinKey = require('coinkey')
 const CryptoJS = require('crypto-js')
 const secp256k1 = require('secp256k1')
 
-const lyraInfo = {
-    private: 0xae,
-    public: 0x30,
-    scripthash: 0x0d
+const bdcashInfo = {
+    private: 0x97,
+    public: 0x12,
+    scripthash: 0x53
 };
 
 module.exports = {
     signWithKey: async function(key, message){
         return new Promise(response => {
             //CREATING CK OBJECT
-            var ck = CoinKey.fromWif(key, lyraInfo);
+            var ck = CoinKey.fromWif(key, bdcashInfo);
             //CREATE HASH FROM MESSAGE
             let hash = CryptoJS.SHA256(message);
             let msg = Buffer.from(hash.toString(CryptoJS.enc.Hex), 'hex');
@@ -32,7 +32,7 @@ module.exports = {
     returnPubKey: async function(key){
         return new Promise(response => {
             //CREATING CK OBJECT
-            var ck = CoinKey.fromWif(key, lyraInfo);
+            var ck = CoinKey.fromWif(key, bdcashInfo);
             //GETTING PUBKEY FROM PRIVATEKEY
             let privKey = ck.privateKey
             const pubKey = secp256k1.publicKeyCreate(privKey)
@@ -42,7 +42,7 @@ module.exports = {
     returnAddress: async function(key){
         return new Promise(response => {
             //CREATING CK OBJECT
-            var ck = CoinKey.fromWif(key, lyraInfo);
+            var ck = CoinKey.fromWif(key, bdcashInfo);
             //GETTING ADDRESS
             response(ck.publicAddress)
         })

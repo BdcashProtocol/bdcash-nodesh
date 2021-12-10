@@ -67,7 +67,7 @@ module Crypto {
 
         public async signmessage(key, message) {
             return new Promise<any>(async response => {
-                var ck = CoinKey.fromWif(key, global['lyraInfo']);
+                var ck = CoinKey.fromWif(key, global['bdcashInfo']);
                 let hash = CryptoJS.SHA256(message);
                 let msg = Buffer.from(hash.toString(CryptoJS.enc.Hex), 'hex');
                 let privKey = ck.privateKey
@@ -97,7 +97,7 @@ module Crypto {
                 var sha = crypto.createHash('sha256').update(pubkeybuffer).digest()
                 let pubKeyHash = crypto.createHash('rmd160').update(sha).digest()
                 var hash160Buf = Buffer.from(pubKeyHash, 'hex')
-                response(cs.encode(hash160Buf, global['lyraInfo'].public))
+                response(cs.encode(hash160Buf, global['bdcashInfo'].public))
             })
         }
 
@@ -206,7 +206,7 @@ module Crypto {
 
                         var signed = trx.sign(private_key, 1);
                         if (send === true) {
-                            console.log('ENTIRE TX IS ' + signed.length + ' BYTE. USING ' + fees + 'LYRA OF FEES.')
+                            console.log('ENTIRE TX IS ' + signed.length + ' BYTE. USING ' + fees + 'BDCASH OF FEES.')
                             var txid = <string>await wallet.request('sendrawtransaction', [signed, true])
                             if (txid['result'] !== null && txid['result'].length === 64) {
                                 for (let x in usedtx) {
@@ -234,7 +234,7 @@ module Crypto {
                             response(signed)
                         }
                     } else {
-                        console.log('NOT ENOUGH FUNDS, NEEDED ' + amountneed + ' LYRA vs ' + inputamount + ' LYRA')
+                        console.log('NOT ENOUGH FUNDS, NEEDED ' + amountneed + ' BDCASH vs ' + inputamount + ' BDCASH')
                         response(false)
                     }
                 } else {
@@ -320,7 +320,7 @@ module Crypto {
                             response(signed)
                         }
                     } else {
-                        console.log('NOT ENOUGH FUNDS, NEEDED ' + amountneed + ' LYRA vs ' + inputamount + ' LYRA')
+                        console.log('NOT ENOUGH FUNDS, NEEDED ' + amountneed + ' BDCASH vs ' + inputamount + ' BDCASH')
                         response(false)
                     }
                 } else {
@@ -381,7 +381,7 @@ module Crypto {
                         }
 
                         if (change > 0.00001) {
-                            trx.addoutput('LRWEsyi8WPECZGu8XsVgMrz5ah93wkwd5H', change); //Adding dummy address output
+                            trx.addoutput('8RWEsyi8WPECZGu8XsVgMrz5ah93wkwd5H', change); //Adding dummy address output
                             outputs[from] = change
                         }
 
@@ -430,7 +430,7 @@ module Crypto {
                             response(signed)
                         }
                     } else {
-                        console.log('NOT ENOUGH FUNDS, NEEDED ' + amountneed + ' LYRA vs ' + inputamount + ' LYRA')
+                        console.log('NOT ENOUGH FUNDS, NEEDED ' + amountneed + ' BDCASH vs ' + inputamount + ' BDCASH')
                         response(false)
                     }
                 } else {
@@ -456,7 +456,7 @@ module Crypto {
                         txid = <string>await wallet.sendmultisig(private_keys, trustlink, trustlink, 0, dataToWrite, redeemScript, fees, true)
 
                         if (txid !== null && txid.length === 64) {
-                            console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'LYRA')
+                            console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'BDCASH')
                             totalfees += fees
                         }
 
@@ -534,7 +534,7 @@ module Crypto {
 
                             txid = <string>await wallet.sendmultisig(private_keys, trustlink, trustlink, 0, chunks[cix], redeemScript, fees, true)
                             if (txid !== null && txid.length === 64) {
-                                console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'LYRA')
+                                console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'BDCASHYRA')
                                 totalfees += fees
                                 txs.push(txid)
                             } else {
@@ -586,7 +586,7 @@ module Crypto {
                         var fees = basefees + (i / 10000)
                         txid = <string>await wallet.send(private_key, dapp_address, dapp_address, 0, dataToWrite, fees, true)
                         if (txid !== null && txid.length === 64) {
-                            console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'LYRA')
+                            console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'BDCASH')
                             totalfees += fees
                         } else {
                             txid = ''
@@ -666,7 +666,7 @@ module Crypto {
 
                             txid = <string>await wallet.send(private_key, dapp_address, dapp_address, 0, chunks[cix], fees, true)
                             if (txid !== null && txid.length === 64) {
-                                console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'LYRA')
+                                console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'BDCASH')
                                 totalfees += fees
                                 txs.push(txid)
                             }

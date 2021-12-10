@@ -246,7 +246,7 @@ async function returnGitChecksum(version) {
   const app = this
   return new Promise(async response => {
     try {
-      let checksums_git = await axios.get('https://raw.githubusercontent.com/bdcashprotocol/bdcash-nodesh/master/checksum', { timeout: 10000 }).catch(e => {
+      let checksums_git = await axios.get('https://raw.githubusercontent.com/BdcashProtocol/bdcash-nodesh/master/checksum', { timeout: 10000 }).catch(e => {
         console.error(e)
         response(false)
       })

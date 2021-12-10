@@ -46,7 +46,7 @@ module Daemon {
                 })
             } else {
                 if (!fs.existsSync('.BOOTSTRAPPING')) {
-                    console.log('\x1b[41m%s\x1b[0m', 'CAN\'T INIT, IDANODE IS SYNCING YET!')
+                    console.log('\x1b[41m%s\x1b[0m', 'CAN\'T INIT, NODESH IS SYNCING YET!')
                 } else {
                     console.log('\x1b[41m%s\x1b[0m', 'BOOTSTRAP IN PROCESS, PLEASE WAIT')
                 }
