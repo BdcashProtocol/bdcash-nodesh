@@ -3,8 +3,12 @@
 #DOWNLOADING WALLET
 wget https://github.com/BdcashProtocol/bdcash-protocol/releases/download/v2.0.0.0-bdcashprotocol/BDCash-Protocol-BinariesV2-0-ubuntu18.zip
 unzip BDCash-Protocol-BinariesV2-0-ubuntu18.zip
+chmod 777 bdcashd
+chmod 777 bdcash-cli
+rm -r bdcash-tx
 mv bdcashd /usr/bin/bdcashd
 mv bdcash-cli /usr/bin/bdcash-cli
+chmod 777 /usr/bin
 rm -rf bin
 rm BDCash-Protocol-BinariesV2-0-ubuntu18.zip
 
@@ -17,6 +21,8 @@ pkill bdcashd
 echo "rpcuser=bdcashrpc
 rpcpassword=bdcashpassword
 rpcallowip=127.0.0.1
+rpcbind=127.0.0.1
+rpcport=36264
 listen=1
 server=1
 daemon=1
@@ -52,9 +58,9 @@ pm2 set pm2-logrotate:rotateInterval '0 * * * *'
 
 #SETTING UP FIREWALL
 ufw allow 22
-ufw deny 36264
+ufw deny 36263
 ufw deny 27017
-ufw allow 36263
+ufw allow 36264
 ufw enable y
 
 #SETTING UP NGINX
