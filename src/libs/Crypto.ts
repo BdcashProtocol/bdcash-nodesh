@@ -534,7 +534,7 @@ module Crypto {
 
                             txid = <string>await wallet.sendmultisig(private_keys, trustlink, trustlink, 0, chunks[cix], redeemScript, fees, true)
                             if (txid !== null && txid.length === 64) {
-                                console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'BDCASHYRA')
+                                console.log('SEND SUCCESS, TXID IS: ' + txid + '. FEES ARE: ' + fees + 'BDCASH')
                                 totalfees += fees
                                 txs.push(txid)
                             } else {

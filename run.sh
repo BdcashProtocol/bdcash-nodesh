@@ -8,7 +8,7 @@ then
     npm run start:testnet
 else
     echo "Running Bdcash NodeSh in mainnet mode"
-    pkill bdcashd
+    pkill /root//bdcashd
     npm run build
     npm run start
 fi

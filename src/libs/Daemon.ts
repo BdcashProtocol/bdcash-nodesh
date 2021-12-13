@@ -319,7 +319,7 @@ module Daemon {
                 }
             } else {
                 if (!fs.existsSync('.BOOTSTRAPPING')) {
-                    console.log('\x1b[41m%s\x1b[0m', 'CAN\'T INIT, IDANODE IS SYNCING YET!')
+                    console.log('\x1b[41m%s\x1b[0m', 'CAN\'T INIT, NODESH IS SYNCING YET!')
                 } else {
                     console.log('\x1b[41m%s\x1b[0m', 'BOOTSTRAP IN PROCESS, PLEASE WAIT')
                 }
@@ -1512,10 +1512,10 @@ module Daemon {
                                                                         let answered = false
                                                                         let aix = 0
                                                                         while (answered === false) {
-                                                                            let idanode = maintainers[Math.floor(Math.random() * maintainers.length)]
-                                                                            utils.log('ASKING ' + idanode.url + ' TO VALIDATE TRANSACTION')
+                                                                            let nodesh = maintainers[Math.floor(Math.random() * maintainers.length)]
+                                                                            utils.log('ASKING ' + nodesh.url + ' TO VALIDATE TRANSACTION')
                                                                             let validationsigned = await wallet.signmessage(process.env.NODE_KEY, validationhex)
-                                                                            let validationresponse = await axios.post(idanode.url + '/contracts/run', validationsigned)
+                                                                            let validationresponse = await axios.post(nodesh.url + '/contracts/run', validationsigned)
                                                                             if (validationresponse.data !== undefined) {
                                                                                 answered = true
                                                                                 if (validationresponse.data === false) {
