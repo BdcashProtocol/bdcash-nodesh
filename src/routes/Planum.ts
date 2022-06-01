@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Contracts = require("../libs/Contracts")
 const messages = require('../libs/p2p/messages.js')
 const CryptoJS = require('crypto-js')
-const BdcashCore = require('@bdcash-protocol/core')
+const BdcashCore = require('@bdeco/core')
 const bdcash = new BdcashCore
 const axios = require('axios')
 const utils = new Utilities.Parser

@@ -12,8 +12,8 @@ const console = require('better-console')
 const LZUTF8 = require('lzutf8')
 const axios = require('axios')
 const fs = require('fs')
-const vm = require('@bdcash-protocol/vm')
-const BdcashCore = require('@bdcash-protocol/core')
+const vm = require('@bdeco/vm')
+const BdcashCore = require('@bdeco/core')
 const bdcash = new BdcashCore
 
 const config = {

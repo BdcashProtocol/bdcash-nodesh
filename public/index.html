@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Bdcash NodeSH</title>
+    <title>Nodesh - Validator BDCashProtocol</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="logo.png">
@@ -41,7 +41,7 @@
     <div id="app">
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h2 class="title">Bdcash Nodesh</h2>
+                <h2 class="title">Nodesh - Validator BDCashProtocol</h2>
                 <nav>
                     <ul>
                         <li v-on:click="showExplorer"><a href="#">Explorer</a></li>
@@ -83,7 +83,7 @@
                     <div style="border-bottom:1px solid #ddd; width:100; display:block;">
                         <div class="row">
                             <div class="col-sm-6"><strong>Block Reward</strong></div>
-                            <div class="col-sm-6 text-right">{{ block.generated }} BDCASH</div>
+                            <div class="col-sm-6 text-right">{{ block.generated }} BDECO</div>
                         </div>
                     </div>
 
@@ -105,13 +105,13 @@
                     <div v-for="(tx, index) in block.analysis">
                         <div v-if="tx.vout > 0" style="background:#eee; border:1px solid #ddd; border-radius:5px; margin:10px 0; padding:10px;">
                             <strong>TXID:</strong> {{ index }}<br>
-                            <strong>Total Inputs:</strong> {{ tx.vin }} BDCASH<br>
-                            <strong>Total Outputs:</strong> {{ tx.vout }} BDCASH<hr>
+                            <strong>Total Inputs:</strong> {{ tx.vin }} BDECO<br>
+                            <strong>Total Outputs:</strong> {{ tx.vout }} BDECO<hr>
                             <div v-for="(bal, index) in tx.balances">
                                 <h4>{{ index }}</h4>
-                                Input: {{ bal.vin }} BDCASH<br>
-                                Output: {{ bal.vout }} BDCASH<br>
-                                Balance: {{ bal.vout - bal.vin }} BDCASH
+                                Input: {{ bal.vin }} BDECO<br>
+                                Output: {{ bal.vout }} BDECO<br>
+                                Balance: {{ bal.vout - bal.vin }} BDECO
                             </div>
                         </div>
                     </div>
@@ -143,8 +143,8 @@
                         <button class="btn btn-primary" v-on:click="createAddress">Create address</button>
                         <hr>
                         <h3>Init address</h3>
-                        The Nodesh will send an amount of BDCASH to the address. This tool can be used once for the same address.<br>
-                        <input type="text" v-model="address" placeholder="Write a valid BDCASH Address" style="border:0; width:340px; border-bottom:2px solid #000; padding-bottom:5px">
+                        The Nodesh will send an amount of BDECO to the address. This tool can be used once for the same address.<br>
+                        <input type="text" v-model="address" placeholder="Write a valid BDECO Address" style="border:0; width:340px; border-bottom:2px solid #000; padding-bottom:5px">
                         <button class="btn btn-primary" v-on:click="initAddress"><i class="fa fa-arrow-right"></i></button>
                         <hr>
                         <h3>Download latest bootstrap</h3>
@@ -160,7 +160,7 @@
         <div class="footer-container">
             <footer class="wrapper" style="text-align: center;">
                 <h3 style="font-size:12px">Open Source project by <a href="https://bdcashprotocol.com" style="color:#fff"
-                        target="_blank">Bdcash Protocol</a></h3>
+                        target="_blank">BdcashProtocol</a></h3>
             </footer>
         </div>
     </div>

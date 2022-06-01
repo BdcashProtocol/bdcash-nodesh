@@ -1,21 +1,21 @@
 #!/bin/bash
 
 #DOWNLOADING WALLET
-wget https://github.com/BdcashProtocol/bdcash-protocol/releases/download/v2.0.0.0-bdcashprotocol/BDCash-Protocol-BinariesV2-0-ubuntu18.zip
-unzip BDCash-Protocol-BinariesV2-0-ubuntu18.zip
-chmod 777 bdcashd
-chmod 777 bdcash-cli
-rm -r bdcash-tx
-mv bdcashd /usr/bin/bdcashd
-mv bdcash-cli /usr/bin/bdcash-cli
+wget https://github.com/BdcashProtocol/bdcashprotocol-bdeco/releases/download/V1.0.0.0/Binaries-Ubunut18.zip
+unzip Binaries-Ubunut18.zip
+chmod 777 bdcashprotocold
+chmod 777 bdcashprotocol-cli
+rm -r bdcashprotocol-tx
+mv bdcashprotocold /usr/bin/bdcashprotocold
+mv bdcashprotocol-cli /usr/bin/bdcashprotocol-cli
 chmod 777 /usr/bin
 rm -rf bin
-rm BDCash-Protocol-BinariesV2-0-ubuntu18.zip
+rm Binaries-Ubunut18.zip
 
 #RUNNING WALLET FOR THE FIRST TIME
-bdcashd &
+bdcashprotocold &
 sleep 10s
-pkill bdcashd
+pkill bdcashprotocold
 
 #WRITING CONF FILE
 echo "rpcuser=bdcashrpc
@@ -28,7 +28,7 @@ server=1
 daemon=1
 index=1
 txindex=1
-logtimestamps=1" > "/root/.bdcash/bdcash.conf"
+logtimestamps=1" > "/root/.bdcashprotocol/bdcashprotocol.conf"
 
 #INSTALL NODEJS
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
@@ -58,9 +58,9 @@ pm2 set pm2-logrotate:rotateInterval '0 * * * *'
 
 #SETTING UP FIREWALL
 ufw allow 22
-ufw deny 36263
+ufw deny 17292
 ufw deny 27017
-ufw allow 36264
+ufw allow 17293
 ufw enable y
 
 #SETTING UP NGINX

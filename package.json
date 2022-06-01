@@ -1,6 +1,6 @@
 {
-  "name": "@bdcash-protocol/nodesh",
-  "version": "1.0.4",
+  "name": "@bdeco/nodesh",
+  "version": "1.0.0",
   "description": "NodeJS implementation of Bdcash NodeSH Technology",
   "main": "index.js",
   "scripts": {
@@ -20,9 +20,9 @@
   "author": "Bdcash Protocol",
   "license": "MIT",
   "dependencies": {
-    "@bdcash-protocol/core": "^1.0.8",
-    "@bdcash-protocol/ipfs": "^1.0.1",
-    "@bdcash-protocol/vm": "^1.0.4",
+    "@bdeco/core": "^1.0.0",
+    "@bdeco/ipfs": "^1.0.0",
+    "@bdeco/vm": "^1.0.0",
     "@types/mathjs": "^6.0.11",
     "@types/node": "14.14.22",
     "archiver": "^5.2.0",

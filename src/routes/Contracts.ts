@@ -1,5 +1,5 @@
 import express = require("express")
-const vm = require('@bdcash-protocol/vm')
+const vm = require('@bdeco/vm')
 import * as Utilities from '../libs/Utilities'
 import * as Crypto from '../libs/Crypto'
 import * as Contracts from '../libs/Contracts'

@@ -8,12 +8,12 @@ html {
 }
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: #dbb3fc;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #dbb3fc;
     text-shadow: none;
 }
 
@@ -73,18 +73,18 @@ body {
    =================== */
 
 .header-container {
-    border-bottom: 20px solid #e4b826;
+    border-bottom: 20px solid #881ddf;
 }
 
 .footer-container,
 .main aside {
-    border-top: 20px solid #e4b826;
+    border-top: 20px solid #881ddf;
 }
 
 .header-container,
 .footer-container,
 .main aside {
-    background: #5a4f0e;
+    background: #380e5a;
 }
 
 .title {
@@ -111,7 +111,7 @@ nav a {
     font-weight: bold;
 
     color: white;
-    background: #e4b826;
+    background: #881ddf;
 }
 
 nav a:hover,

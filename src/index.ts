@@ -90,15 +90,15 @@ async function checkConnections() {
 
     if (global['testnet'] === true) {
       global['bdcashInfo'] = {
-        private: 0xae,
-        public: 0x7f,
-        scripthash: 0x13
+        private: 0x56,
+        public: 0x55,
+        scripthash: 0x56
       }
     } else {
       global['bdcashInfo'] = {
-        private: 0xae,
-        public: 0x30,
-        scripthash: 0x0d
+        private: 0x1A,
+        public: 0x19,
+        scripthash: 0x19
       }
     }
 
