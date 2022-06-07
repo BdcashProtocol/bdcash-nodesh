@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #DOWNLOADING WALLET
-wget https://github.com/BdcashProtocol/bdcashprotocol-bdeco/releases/download/V1.0.0.0/Binaries-Ubunut18.zip
+wget https://github.com/BdcashProtocol/bdcashprotocol-bdeco/releases/download/V1.0.0.0/Binaries-Ubuntu18.zip
 unzip Binaries-Ubunut18.zip
 chmod 777 bdcashprotocold
 chmod 777 bdcashprotocol-cli
