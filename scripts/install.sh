@@ -2,7 +2,7 @@
 
 #DOWNLOADING WALLET
 wget https://github.com/BdcashProtocol/bdcashprotocol-bdeco/releases/download/V1.0.0.0/Binaries-Ubuntu18.zip
-unzip Binaries-Ubunut18.zip
+unzip Binaries-Ubuntu18.zip
 chmod 777 bdcashprotocold
 chmod 777 bdcashprotocol-cli
 rm -r bdcashprotocol-tx
@@ -10,7 +10,7 @@ mv bdcashprotocold /usr/bin/bdcashprotocold
 mv bdcashprotocol-cli /usr/bin/bdcashprotocol-cli
 chmod 777 /usr/bin
 rm -rf bin
-rm Binaries-Ubunut18.zip
+rm Binaries-Ubuntu18.zip
 
 #RUNNING WALLET FOR THE FIRST TIME
 bdcashprotocold &
