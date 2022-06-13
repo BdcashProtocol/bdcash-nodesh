@@ -1,4 +1,4 @@
-# Run Bdcash IdaNode Docker
+# Run BdcashProtocol NodeSH Docker
 
 Run bash script to run mainnet idanode:
 ```
