@@ -1,7 +1,7 @@
 {
   "name": "@bdeco/nodesh",
   "version": "1.0.0",
-  "description": "NodeJS implementation of Bdcash NodeSH Technology",
+  "description": "NodeJS implementation of Bdeco NodeSH Technology",
   "main": "index.js",
   "scripts": {
     "dev": "tsc --watch & nodemon --delay 3 dist",
