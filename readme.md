@@ -1,5 +1,5 @@
-## Bdcash NodeSH implementation in TypeScript
+## BdcashProtocol NodeSH implementation in TypeScript
 
-<img src="https://raw.githubusercontent.com/BdcashProtocol/bdcash-mediakit/main/cole%C3%A7%C3%A3o/nodesh.png">
+<img src="https://github.com/BdcashProtocol/bdcash-mediakit/blob/main/brands/nodesh.png">
 <br>
 <p style="text-align: center;">Bdcash NodeSH implementation in TypeScript</p>
