@@ -11,7 +11,7 @@ async function create() {
     let nodeshkey = await bdcash.createAddress('-')
 
     let bdcashconfcontent = `rpcuser=` + rpcuser.pub + `\nrpcpassword=` + rpcuser.prv + `\nrpcallowip=127.0.0.1\nstaking=0\nlisten=1\nserver=1\ndaemon=1\nindex=1\ntxindex=1\nlogtimestamps=1`
-    let nodeshconfcontent = `RPCUSER=` + rpcuser.pub + `\nRPCPASSWORD=` + rpcuser.prv + `\nRPCPORT=36264\nRPCPORT_TESTNET=37264\nRPCADDRESS=localhost\nDEBUG=true\nDB_PORT=27017\nDB_HOST=localhost\nCOIN=BDECO\nAIRDROP=0\nSERVERMODE=true\nTESTNET=false\nP2PPORT=36263\nNODE_KEY=` + nodeshkey.prv + `\nADMIN_PUBKEY=` + nodeshkey.key + `\nSYNC=true\nMAX_OPRETURN=100000`
+    let nodeshconfcontent = `RPCUSER=` + rpcuser.pub + `\nRPCPASSWORD=` + rpcuser.prv + `\nRPCPORT=17293\nRPCPORT_TESTNET=27293\nRPCADDRESS=localhost\nDEBUG=true\nDB_PORT=27017\nDB_HOST=localhost\nCOIN=BDECO\nAIRDROP=0\nSERVERMODE=true\nTESTNET=false\nP2PPORT=17292\nNODE_KEY=` + nodeshkey.prv + `\nADMIN_PUBKEY=` + nodeshkey.key + `\nSYNC=true\nMAX_OPRETURN=100000`
 
     try {
         fs.writeFileSync(bdcashconf, bdcashconfcontent)
