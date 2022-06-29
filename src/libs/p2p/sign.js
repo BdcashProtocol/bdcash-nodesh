@@ -3,9 +3,9 @@ const CryptoJS = require('crypto-js')
 const secp256k1 = require('secp256k1')
 
 const bdcashInfo = {
-    private: 0x97,
-    public: 0x12,
-    scripthash: 0x53
+    private: 0x51A,
+    public: 0x19,
+    scripthash: 0x19
 };
 
 module.exports = {

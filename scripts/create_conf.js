@@ -4,7 +4,7 @@ const fs = require('fs')
 const homedir = require('os').homedir();
 const bdcashconf = homedir + '/.bdcashprotocol/bdcashprotocol.conf'
 console.log('CONFIG PATH IS ' + bdcashconf)
-const nodeshconf = './.env'
+const nodeshconf = '../.env'
 
 async function create() {
     let rpcuser = await bdcash.createAddress('-')

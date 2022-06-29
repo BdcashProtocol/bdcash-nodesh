@@ -170,15 +170,15 @@ export async function getnewaddress(req: express.Request, res: express.Response)
 
     var internal = req.params.internal
     if (internal === undefined) {
-        var ck = new CoinKey.createRandom(global['lyraInfo'])
-        var lyrapub = ck.publicAddress;
-        var lyraprv = ck.privateWif;
-        var lyrakey = ck.publicKey.toString('hex');
+        var ck = new CoinKey.createRandom(global['bdcashInfo'])
+        var bdcashpub = ck.publicAddress;
+        var bdcashprv = ck.privateWif;
+        var bdcashkey = ck.publicKey.toString('hex');
 
         res.json({
-            address: lyrapub,
-            private_key: lyraprv,
-            pub_key: lyrakey,
+            address: bdcashpub,
+            private_key: bdcashprv,
+            pub_key: bdcashkey,
             status: 200
         })
 

@@ -65,7 +65,7 @@ const nodeprocess = async () => {
       return console.log(err)
     }
     checkConnections()
-    return console.log(`Bdcash nodesh listening at port ${port}. Public IP is: ${ip}`)
+    return console.log(`BdcashProtocol nodesh listening at port ${port}. Public IP is: ${ip}`)
   })
 
 }
@@ -193,12 +193,12 @@ async function checkConnections() {
           console.log('RUNNING WALLET IN TESTNET MODE')
         }
 
-        if (process.env.LYRAFOLDER !== undefined) {
-          datadir_flag = ' -datadir=' + process.env.LYRAFOLDER
+        if (process.env.BDECOFOLDER !== undefined) {
+          datadir_flag = ' -datadir=' + process.env.BDECOFOLDER
         }
         try {
-          console.log('Running wallet using: ' + 'bdcashd' + testnet_flag + datadir_flag)
-          exec.exec('bdcashd' + testnet_flag + datadir_flag, {
+          console.log('Running wallet using: ' + 'bdcashprotocold' + testnet_flag + datadir_flag)
+          exec.exec('bdcashprotocold' + testnet_flag + datadir_flag, {
             stdio: 'ignore',
             detached: true
           }).unref()

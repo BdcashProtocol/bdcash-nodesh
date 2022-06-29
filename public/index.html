@@ -34,29 +34,28 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="bg bg-purple">
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <div id="app">
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h2 class="title">Nodesh - Validator BDCashProtocol</h2>
+                <h2 class="title">Nodesh - Validator</h2>
                 <nav>
                     <ul>
-                        <li><a href="https://bdcashprotocol.com" target="_blank">BdscashProtocol</a></li>
-                        <li><a href="https://docs.bdcashprotocol.com" target="_blank">Documentation</a></li>
-                        <li v-on:click="showExplorer"><a href="#">Explorer</a></li>
-                        <li v-on:click="showTools"><a href="#">Tools</a></li>
+                        <li><a href="https://docs.bdcashprotocol.com" target="_blank"><i class="fa fa-book" aria-hidden="true"></i></a></li>
+                        <li v-on:click="showExplorer"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                        <li v-on:click="showTools"><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></a></li>
                     </ul>
                 </nav>
             </header>
         </div>
 
-        <div class="main-container">
+        <div class="main-container container">
             <div class="main wrapper clearfix">
             <div class="row" v-if="show === 'explorer'">
-                <div class="col-md-8">
+                <div class="container col-md-6">
                     <h3>
                         Block #<input type="text" v-model="height" style="border:0; width:140px; text-align:center; border-bottom:2px solid #000; padding-bottom:5px">
                         <button class="btn btn-primary" v-on:click="searchBlock"><i class="fa fa-search"></i></button>
@@ -119,7 +118,20 @@
                     </div>
 
                     <br>
-                    <div v-if="written">
+                    
+                    
+                    <pre v-if="showRaw">{{ block }}</pre>
+                </div>
+                <div class="container col-md-6">
+                    <h3>Wallet Status</h3>
+                    <div class="table-responsive" v-for="(item, index) in status">
+                        <strong>{{ index }}</strong>: {{ item }}
+                    </div>
+                </div>
+               
+              <div class="col-sm-12 text-center">
+<h3>Info data Ecosystem</h3>
+<div v-if="written">
                         <strong>Data written</strong>
                         <pre>{{ written }}</pre><br>
                     </div>
@@ -127,15 +139,8 @@
                         <strong>Data received</strong>
                         <pre>{{ received }}</pre>
                     </div>
-                    
-                    <pre v-if="showRaw">{{ block }}</pre>
-                </div>
-                <div class="col-md-4">
-                    <h3>Wallet Status</h3>
-                    <div v-for="(item, index) in status">
-                        <strong>{{ index }}</strong>: {{ item }}
-                    </div>
-                </div>
+</div>
+            
             </div><!-- #explorer -->
             <div class="row" v-if="show === 'tools'">
                     <div class="col-md-12">
