@@ -2,14 +2,14 @@
 
 #INSTALL DEPENDS COINS RUN
 
-sudo apt update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git zip -y
 sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler -y
 
-sudo apt-get install software-properties-common
+sudo apt-get install software-properties-common -y
 sudo add-apt-repository ppa:bitcoin/bitcoin -y
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y
 sudo apt-get install libzmq3-dev -y
@@ -48,7 +48,7 @@ txindex=1
 logtimestamps=1" > "/root/.bdcashprotocol/bdcashprotocol.conf"
 
 #INSTALL NODEJS
-curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 npm install pm2 -g
 
