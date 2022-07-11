@@ -755,18 +755,19 @@ module Crypto {
                                             block['result']['tx'][i]['vin'][vinx]['addresses'] = txvin['result']['vout'][vout]['scriptPubKey']['addresses']
                                             for (var key in txvin['result']['vout'][vout]['scriptPubKey']['addresses']) {
                                                 var address = txvin['result']['vout'][vout]['scriptPubKey']['addresses'][key]
-                                                if (block['result']['analysis'][i]['balances'][address] === undefined) {
-                                                    block['result']['analysis'][i]['balances'][address] = {}
-                                                    block['result']['analysis'][i]['balances'][address]['value'] = 0
-                                                    block['result']['analysis'][i]['balances'][address]['type'] = 'TX'
-                                                    block['result']['analysis'][i]['balances'][address]['vin'] = 0
-                                                    block['result']['analysis'][i]['balances'][address]['vout'] = 0
+                                               if (address !== undefined && address !== null) {
+                                                    if (block['result']['analysis'][i]['balances'][address] === undefined) {
+                                                        block['result']['analysis'][i]['balances'][address] = {}
+                                                        block['result']['analysis'][i]['balances'][address]['value'] = 0
+                                                        block['result']['analysis'][i]['balances'][address]['type'] = 'TX'
+                                                        block['result']['analysis'][i]['balances'][address]['vin'] = 0
+                                                        block['result']['analysis'][i]['balances'][address]['vout'] = 0
+                                                    }
+                                                    block['result']['analysis'][i]['balances'][address]['value'] -= txvin['result']['vout'][vout]['value']
+                                                    block['result']['analysis'][i]['vin'] += txvin['result']['vout'][vout]['value']
+                                                    block['result']['analysis'][i]['balances'][address]['vin'] += txvin['result']['vout'][vout]['value']
+                                                    txtotvin += txvin['result']['vout'][vout]['value']
                                                 }
-                                                block['result']['analysis'][i]['balances'][address]['value'] -= txvin['result']['vout'][vout]['value']
-                                                block['result']['analysis'][i]['vin'] += txvin['result']['vout'][vout]['value']
-                                                block['result']['analysis'][i]['balances'][address]['vin'] += txvin['result']['vout'][vout]['value']
-                                                txtotvin += txvin['result']['vout'][vout]['value']
-                                            }
                                         }
                                     }
                                     //PARSING ALL VOUT
