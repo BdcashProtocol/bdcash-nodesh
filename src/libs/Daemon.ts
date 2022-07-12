@@ -774,7 +774,7 @@ module Daemon {
                                             address: address,
                                             txid: txid,
                                             scriptPubKey: scriptPubKey,
-                                            amount: amount,
+                                            amount: parseFloat(amount.toFixed(8)),
                                             vout: vout,
                                             block: block,
                                             redeemed: null,

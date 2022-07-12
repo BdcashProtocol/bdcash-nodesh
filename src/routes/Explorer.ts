@@ -162,7 +162,7 @@ export async function unspent(req: express.Request, res: express.Response) {
         let locked = []
         let blockchainunspent = await wallet.listunpent(address)
         for (let i in blockchainunspent) {
-            balance += blockchainunspent[i].amount
+            balance += parseFloat(blockchainunspent[i].amount.toFixed(8)),
             if (masternodetxs.indexOf(blockchainunspent[i].txid + ':' + blockchainunspent[i].vout) !== -1) {
                 locked.push(blockchainunspent[i])
             } else {
@@ -170,7 +170,7 @@ export async function unspent(req: express.Request, res: express.Response) {
             }
         }
         res.json({
-            balance: balance,
+            balance: parseFloat(balance.toFixed(8)),
             unspent: unspent,
             locked: locked,
             status: 200
