@@ -757,7 +757,7 @@ module Crypto {
                                                 var address = txvin['result']['vout'][vout]['scriptPubKey']['addresses'][key]
 
                                             if (address !== undefined || address !== null) {
-                                            if (block['result']['analysis'][i]['balances'][address] === undefined || address !== undefined || address !== null) {
+                                            if (block['result']['analysis'][i]['balances'][address] === undefined || block['result']['analysis'][i]['balances'][address] === null) {
                                                         block['result']['analysis'][i]['balances'][address] = {}
                                                         block['result']['analysis'][i]['balances'][address]['value'] = 0
                                                         block['result']['analysis'][i]['balances'][address]['type'] = 'TX'
